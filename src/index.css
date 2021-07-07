@@ -51,6 +51,14 @@ body {
   font-size: large;
 }
 
+.form2 > select {
+  margin-bottom: 10px;
+  height: 32px;
+  width: 300px;
+  border-radius: 5px;
+  font-size: large;
+}
+
 .form2 > button {
   height: 30px;
   width: 300px;
