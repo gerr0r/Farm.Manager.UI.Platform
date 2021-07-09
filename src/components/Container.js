@@ -55,7 +55,26 @@ const Container = ({ role }) => {
                     </React.Suspense>
                 </div>
             )
-    
+
+        case "user": 
+            Farm = React.lazy(() => import('plugins/Farm'))
+            FieldCrops = React.lazy(() => import('plugins/FieldCrops'))
+            MachineDetails = React.lazy(() => import('plugins/MachineDetails'))
+            Employee = React.lazy(() => import('plugins/Employee'))
+            
+            return (
+                <div className="container">
+                    <React.Suspense fallback={<span>Loading...</span>}>
+                        <Switch>
+                            <Route path='/farms/:farmId'><Farm /></Route>
+                            <Route path='/fields/:fieldId/crops'><FieldCrops /></Route>
+                            <Route path='/machines/:machineId'><MachineDetails /></Route>
+                            <Route path='/employees/:employeeId'><Employee /></Route>
+                        </Switch>
+                    </React.Suspense>
+                </div>
+            )
+
         default:
             return null;
     }
